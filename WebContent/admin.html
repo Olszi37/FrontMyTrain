@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Strona administratorska - MyTrain</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/adminPageScripts.js"></script>
+
+<style>
+
+.response {
+	color : black;
+	font-style : normal;
+}
+
+.error {
+	color : red;
+	font-weight : bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form>
+<label>Sklady</label><br>
+<input id="trainsetInput" type="file" name="trainset"><p id="trainsetP"></p>
+<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>
+</form>
+
+<form action="http://localhost:8080/MyTrain/carriage/set/file" id="carriageForm" method="post" enctype="multipart/form-data" target="_blank">
+<label>Wagony</label><br>
+<input type="file" name="carriage.xlsx">
+<button form="carriageForm" type="submit">Wyslij</button><br>
+</form>
+
+<form action="http://localhost:8080/MyTrain/station/set/file" id="stationForm" method="post" enctype="multipart/form-data" target="_blank">
+<label>Stacje</label><br>
+<input id="stationInput" type="file" name="station"><p id=""></p>
+<button form="stationForm" type="submit">Wyslij</button><br>
+</form>
+
+<form action="http://localhost:8080/MyTrain/course/set/file" id="courseForm" method="post" enctype="multipart/form-data" target="_blank">
+<label>Polaczenia</label><br>
+<input type="file" name="course.xlsx">
+<button form="courseForm" type="submit">Wyslij</button><br>
+</form>
+
+<form action="http://localhost:8080/MyTrain/routePoint/set/file" id="routeForm" method="post" enctype="multipart/form-data" target="_blank">
+<label>Szczegoly polaczen</label><br>
+<input type="file" name="routePoint.xlsx">
+<button form="routeForm" type="submit">Wyslij</button><br>
+</form>
+
+</body>
+</html>
