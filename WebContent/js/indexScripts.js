@@ -2,9 +2,9 @@
  * Created by Siny on 2016-10-29.
  */
 function setSearchData(){
-    getStations();
-    setDatalist();
-    var date = $("#departureDate")[0];
+    //getStations();
+    //setDatalist();
+    var date = $("#departureDate").get(0);
     date.value = new Date().toLocaleDateString("eu-PL");
 }
 
@@ -58,3 +58,12 @@ function getStationObject(name){
 
     return JSON.stringify(find);
 }
+
+// $(document).ready(function () {
+//     $("#searchButton").mouseenter(function () {
+//         $("#searchButton").animate({ filter: invert(100%) }, "fast");
+//     });
+//     $("#searchButton").mouseleave(function () {
+//         $("#searchButton").css("filter", "invert(0%)");
+//     });
+// });

@@ -1,0 +1,88 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#top {
+    background: #3161a0;
+    witdh: auto;
+    height: 100px;
+    top: 0;
+}
+
+#content {
+    display: block;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    width: auto;
+    overflow: auto;
+}
+
+#search {
+    display: block;
+    background: #3161a0;
+    position: fixed;
+    width: 400px;
+    height: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+#innerSearch {
+    margin-top: 50px;
+    margin-left: 25px;
+}
+
+#logo {
+    margin: 25px;
+    color: azure;
+    font-family: Calibri;
+    font-size: xx-large;
+    font-style: italic;
+    display: inline-block;
+}
+
+#searchHeader {
+    margin-left: 25px;
+    margin-top: 30px;
+    font-family: Calibri;
+    font-size: 30px;
+    color: #d6d4d4;
+    display: inline-block;
+}
+
+.header {
+    color: #d6d4d4;
+    font-weight: bold;
+    font-family: Calibri;
+}
+
+input {
+    background-color: #e3e3ee;
+}
+
+.inputStation {
+    width: 350px;
+}
+
+.inputDate {
+    width: 160px;
+}
+
+#searchButton {
+    height: 40px;
+    width: 350px;
+    background-color: chocolate;
+    color: azure;
+    border: none;
+    font-size: medium;
+    font-family: Calibri;
+}
+
+#searchButton:hover {
+    filter: invert(100%);
+    transition-duration: 0.5s;
+}

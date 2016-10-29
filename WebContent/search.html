@@ -13,8 +13,6 @@
 
 <datalist id="stationNames"></datalist>
 
-<form action = "http://localhost:8080/MyTrain/search" method="post" enctype="application/json">
-
 <label>Stacja początkowa</label><br>
 
 <input id="initialStop" list="stationNames" type ="text" name="initialStop" placeholder="Warszawa Centralna"><br>
@@ -28,8 +26,6 @@
 <input id="departureDate" type="date" name="departureDate"><br>
 
 <br>
-
-</form>
 <button onclick="redirect()">Szukaj</button>
 
 <p id="some"></p>

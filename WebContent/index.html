@@ -3,10 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>MyTrain - połączenia kolejowe całej Polski</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="js/indexScripts.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body onload="setSearchData()">
+
+<div id="top">
+<label id="logo">MyTrain</label>
+</div>
+
+<div id="content"></div>
+
+<div id="search">
+    <label id="searchHeader">Wyszukaj połączenie</label>
+    <div id="innerSearch">
+        <datalist id="stationNames"></datalist>
+
+        <label class="header">Stacja początkowa</label><br>
+        <input id="initialStop" class="inputStation" list="stationNames" type ="text" name="initialStop" placeholder="Warszawa Centralna"><br>
+
+        <label class="header">Stacja końcowa</label><br>
+        <input id="finalStop" class="inputStation" list="stationNames" type="text" name="finalStop" placeholder="Kraków Główny"><br>
+
+        <label class="header">Data wyjazdu</label><br>
+        <input id="departureDate" class="inputDate" type="date" name="departureDate"><br>
+
+        <br>
+        <button id="searchButton" onclick="redirect()">Szukaj</button>
+    </div>
+</div>
 
 </body>
 </html>
