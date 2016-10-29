@@ -8,52 +8,65 @@
 <script type="text/javascript" src="js/adminPageScripts.js"></script>
 
 <style>
+	.error {
+		color: red;
+		font-weight: bold;
+	}
 
-.response {
-	color : black;
-	font-style : normal;
-}
+	input{
+		witdh: 200px;
+		display: inline-block;
+	}
 
-.error {
-	color : red;
-	font-weight : bold;
-}
+	p{
+		display: inline-block;
+		margin-left: 10px;
+	}
 
 </style>
 
 </head>
 
 <body>
-
-<form>
+<div>
 <label>Sklady</label><br>
-<input id="trainsetInput" type="file" name="trainset"><p id="trainsetP"></p>
-<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>
-</form>
+	<div>
+		<input id="trainsetInput" type="file"><p id="trainsetP"></p>
+	</div>
+	<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>
+</div>
 
-<form action="http://localhost:8080/MyTrain/carriage/set/file" id="carriageForm" method="post" enctype="multipart/form-data" target="_blank">
-<label>Wagony</label><br>
-<input type="file" name="carriage.xlsx">
-<button form="carriageForm" type="submit">Wyslij</button><br>
-</form>
+<div>
+<br><label>Wagony</label><br>
+	<div>
+		<input id="carriageInput" type="file" name="carriage"><p id="carriageP"></p>
+	</div>
+	<button id="carriageButton" onclick="setCarriages()" >Wyslij</button><br>
+</div>
 
-<form action="http://localhost:8080/MyTrain/station/set/file" id="stationForm" method="post" enctype="multipart/form-data" target="_blank">
-<label>Stacje</label><br>
-<input id="stationInput" type="file" name="station"><p id=""></p>
-<button form="stationForm" type="submit">Wyslij</button><br>
-</form>
+<div>
+<br><label>Stacje</label><br>
+	<div>
+		<input id="stationInput" type="file" name="station"><p id="stationP"></p>
+	</div>
+	<button id="stationButton" onclick="setStations()">Wyslij</button><br>
+</div>
 
-<form action="http://localhost:8080/MyTrain/course/set/file" id="courseForm" method="post" enctype="multipart/form-data" target="_blank">
-<label>Polaczenia</label><br>
-<input type="file" name="course.xlsx">
-<button form="courseForm" type="submit">Wyslij</button><br>
-</form>
+<div>
+<br><label>Polaczenia</label><br>
+	<div>
+		<input id="connectionInput" type="file" name="course"><p id="connectionP"></p>
+	</div>
+	<button id="connectionButton" onclick="setConnections()">Wyslij</button><br>
+</div>
 
-<form action="http://localhost:8080/MyTrain/routePoint/set/file" id="routeForm" method="post" enctype="multipart/form-data" target="_blank">
-<label>Szczegoly polaczen</label><br>
-<input type="file" name="routePoint.xlsx">
-<button form="routeForm" type="submit">Wyslij</button><br>
-</form>
+<div>
+<br><label>Szczegoly polaczen</label><br>
+	<div>
+		<input id="routePointInput" type="file" name="routePoint"><p id="routePointP"></p>
+	</div>
+	<button id="routePointButton" onclick="setRoutePoints()">Wyslij</button><br>
+</div>
 
 </body>
 </html>

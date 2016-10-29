@@ -36,12 +36,12 @@ function setDatalist(){
 }
 
 function redirect(){
-	window.sessionStorage.setItem("sessionItem", $("#initialStop").val());
-	window.localStorage.setItem("localItem", $("#initialStop").val());
+	window.sessionStorage.setItem("sessionItem", $("#initialStop").option.val());
+	window.localStorage.setItem("localItem", "COS");
 	
 	$("#some").text(localStorage.getItem("localItem"));
 
-	//window.location.href = "buyTicket.html";
+	window.location.href = "buyTicket.html";
 }
 
 function getStationObject(name){
