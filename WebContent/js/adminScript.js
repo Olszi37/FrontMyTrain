@@ -3,7 +3,7 @@ function setTrainsets(){
 	var input = $("#trainsetInput").get(0);
 	var inputName = "trainset";
 	var info = $("#trainsetP");
-	var fileName = "trainsets.xlsx";
+	var fileName = "trainset.xlsx";
 	var button = $("#trainsetButton");
 	
 	sendRequest(url, input, inputName, info, fileName, button);
@@ -61,13 +61,20 @@ function sendRequest(url, input, inputName, info, fileName, button){
 		var file = input.files[0];
 		var request = new XMLHttpRequest();
 		
-		formData.append(inputName, file, fileName);
+		//formData.append(inputName, file, fileName);
+		formData.append(inputName, file);
 		
 		request.open("POST", url, true);
+		request.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:63342");
 		request.setRequestHeader("Content-Type", "multipart/form-data");
-		request.setRequestHeader("Access-Control-Allow-Origin", "*");
 		
 		request.send(formData);
+
+		request.onerror = function () {
+			if (this.status == 403){
+				info.addClass("error").text("403 Zabroniono. Skontaktuj sie z adminem");
+			}
+		};
 		
 		request.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){

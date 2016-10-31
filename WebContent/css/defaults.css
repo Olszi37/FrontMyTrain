@@ -1,0 +1,21 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: rgb(198, 205, 247);
+}
+
+#top {
+    background: #3161a0;
+    witdh: auto;
+    height: 100px;
+    top: 0;
+}
+
+#logo {
+    margin: 25px;
+    color: azure;
+    font-family: Calibri;
+    font-size: xx-large;
+    font-style: italic;
+    display: inline-block;
+}

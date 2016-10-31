@@ -8,6 +8,7 @@
     <script src="js/indexScripts.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/defaults.css">
 </head>
 <body onload="setSearchData()">
 
@@ -15,24 +16,52 @@
 <label id="logo">MyTrain</label>
 </div>
 
-<div id="content"></div>
+<div id="content">
+    <div id="innerContent">
+        <h1 class="contentHeader">MyTrain - mała apka do wyszukiwania połączeń kolejowych</h1>
+        <br>
+        <p class="contentText">Aplikacja na wzór strony <a href="http://www.intercity.pl/" target="_blank">PKP Intercity</a>, stworzona
+            głównie na potrzeby nauki Spring, Hibernate etc.</p>
+        <p class="contentText">Całość podzielona jest na dwie aplikacje: back-endową i front-endową.</p>
+        <p class="contentText">Aplikacja wciąż w budowie.</p>
+        <h3 class="contentHeader">Zastosowane technologie:</h3>
+        <ul class="contentText">
+            <li>Spring</li>
+            <li>Maven</li>
+            <li>Hibernate</li>
+            <li>Apache POI</li>
+            <li>HTML</li>
+            <li>jQuery</li>
+            <li>CSS</li>
+        </ul>
+        <p class="contentText">Stworzył: Michał Olszak</p>
+    </div>
+</div>
 
 <div id="search">
     <label id="searchHeader">Wyszukaj połączenie</label>
+
     <div id="innerSearch">
         <datalist id="stationNames"></datalist>
 
-        <label class="header">Stacja początkowa</label><br>
-        <input id="initialStop" class="inputStation" list="stationNames" type ="text" name="initialStop" placeholder="Warszawa Centralna"><br>
+        <label class="inputHeader">Stacja początkowa</label><br>
+        <input id="initialStop" class="inputStation" list="stationNames" type ="text" placeholder="Warszawa Centralna"><br>
 
-        <label class="header">Stacja końcowa</label><br>
-        <input id="finalStop" class="inputStation" list="stationNames" type="text" name="finalStop" placeholder="Kraków Główny"><br>
+        <label class="inputHeader">Stacja końcowa</label><br>
+        <input id="finalStop" class="inputStation" list="stationNames" type="text" placeholder="Kraków Główny"><br>
 
-        <label class="header">Data wyjazdu</label><br>
-        <input id="departureDate" class="inputDate" type="date" name="departureDate"><br>
+        <label class="inputHeader">Data wyjazdu</label><br>
+        <input id="departureDate" class="inputDate" type="date"><br>
 
         <br>
         <button id="searchButton" onclick="redirect()">Szukaj</button>
+    </div>
+
+    <div id="otherInfo">
+        <button class="otherInfoButton">O firmie</button>
+        <button class="otherInfoButton">Rozkład</button>
+        <button class="otherInfoButton">Lista stacji</button>
+        <button class="otherInfoButton">Kontakt</button>
     </div>
 </div>
 

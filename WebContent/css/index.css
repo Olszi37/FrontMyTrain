@@ -1,15 +1,3 @@
-body {
-    margin: 0px;
-    padding: 0px;
-}
-
-#top {
-    background: #3161a0;
-    witdh: auto;
-    height: 100px;
-    top: 0;
-}
-
 #content {
     display: block;
     left: 0;
@@ -36,15 +24,6 @@ body {
     margin-left: 25px;
 }
 
-#logo {
-    margin: 25px;
-    color: azure;
-    font-family: Calibri;
-    font-size: xx-large;
-    font-style: italic;
-    display: inline-block;
-}
-
 #searchHeader {
     margin-left: 25px;
     margin-top: 30px;
@@ -54,7 +33,7 @@ body {
     display: inline-block;
 }
 
-.header {
+.inputHeader {
     color: #d6d4d4;
     font-weight: bold;
     font-family: Calibri;
@@ -84,5 +63,35 @@ input {
 
 #searchButton:hover {
     filter: invert(100%);
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
+}
+
+#innerContent {
+    margin: 10px;
+}
+
+.contentHeader {
+    font-family: Calibri;
+}
+
+.contentText {
+    font-family: Calibri;
+}
+
+#otherInfo {
+    margin-top: 25%;
+}
+
+.otherInfoButton {
+    background-color: #3161a0;
+    border: none;
+    width: 400px;
+    height: 40px;
+    color: azure;
+    font-size: small;
+    font-family: Calibri;
+}
+
+.otherInfoButton:hover {
+    background-color: #26396d;
 }

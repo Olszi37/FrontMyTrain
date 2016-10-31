@@ -4,68 +4,61 @@
 <meta charset="UTF-8">
 <title>Strona administratorska - MyTrain</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="js/adminPageScripts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/adminScript.js"></script>
 
-<style>
-	.error {
-		color: red;
-		font-weight: bold;
-	}
-
-	input{
-		witdh: 200px;
-		display: inline-block;
-	}
-
-	p{
-		display: inline-block;
-		margin-left: 10px;
-	}
-
-</style>
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+	<link rel="stylesheet" type="text/css" href="css/defaults.css">
 
 </head>
 
 <body>
-<div>
-<label>Sklady</label><br>
-	<div>
-		<input id="trainsetInput" type="file"><p id="trainsetP"></p>
-	</div>
-	<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>
+
+<div id="top">
+	<label id="logo">MyTrain</label>
 </div>
 
-<div>
-<br><label>Wagony</label><br>
+<div id="content">
 	<div>
-		<input id="carriageInput" type="file" name="carriage"><p id="carriageP"></p>
+		<label class="labels">Składy</label><br>
+		<div>
+			<input id="trainsetInput" type="file"><p id="trainsetP"></p>
+		</div>
+		<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>
 	</div>
-	<button id="carriageButton" onclick="setCarriages()" >Wyslij</button><br>
-</div>
 
-<div>
-<br><label>Stacje</label><br>
 	<div>
-		<input id="stationInput" type="file" name="station"><p id="stationP"></p>
+		<br><label class="labels">Wagony</label><br>
+		<div>
+			<input id="carriageInput" type="file" name="carriage"><p id="carriageP"></p>
+		</div>
+		<button id="carriageButton" onclick="setCarriages()" >Wyslij</button><br>
 	</div>
-	<button id="stationButton" onclick="setStations()">Wyslij</button><br>
-</div>
 
-<div>
-<br><label>Polaczenia</label><br>
 	<div>
-		<input id="connectionInput" type="file" name="course"><p id="connectionP"></p>
+		<br><label class="labels">Stacje</label><br>
+		<div>
+			<input id="stationInput" type="file" name="station"><p id="stationP"></p>
+		</div>
+		<button id="stationButton" onclick="setStations()">Wyslij</button><br>
 	</div>
-	<button id="connectionButton" onclick="setConnections()">Wyslij</button><br>
-</div>
 
-<div>
-<br><label>Szczegoly polaczen</label><br>
 	<div>
-		<input id="routePointInput" type="file" name="routePoint"><p id="routePointP"></p>
+		<br><label class="labels">Połączenia</label><br>
+		<div>
+			<input id="connectionInput" type="file" name="course"><p id="connectionP"></p>
+		</div>
+		<button id="connectionButton" onclick="setConnections()">Wyslij</button><br>
 	</div>
-	<button id="routePointButton" onclick="setRoutePoints()">Wyslij</button><br>
+
+	<div>
+		<br><label class="labels">Szczegóły połączeń</label><br>
+		<div>
+			<input id="routePointInput" type="file" name="routePoint"><p id="routePointP"></p>
+		</div>
+		<button id="routePointButton" onclick="setRoutePoints()">Wyslij</button><br>
+	</div>
+
 </div>
 
 </body>
