@@ -2,28 +2,25 @@
  * Created by Siny on 2016-10-29.
  */
 function setSearchData(){
-    //getStations();
-    //setDatalist();
+    getStations();
+    setDatalist();
     var date = $("#departureDate").get(0);
     date.value = new Date().toLocaleDateString("eu-PL");
 }
 
 function getStations(){
-    var request = new XMLHttpRequest();
     var url = "http://localhost:8080/MyTrain/station/get/all";
 
-    request.open("GET", url, true);
-    request.setRequestHeader("Access-Control-Allow-Origin", "*");
-    request.setRequestHeader("accept", "Application/json");
-    request.send();
-
-    request.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            var result = this.responseText;
-
-            localStorage.setItem("stations", result);
+    $.ajax({
+        url: url,
+        type: "GET",
+        contentType: false,
+        dataType: "json",
+        success: function (response, status, jqXHR) {
+            localStorage.setItem("stations", JSON.stringify(response));
+            window.alert(localStorage.getItem("stations"));
         }
-    }
+    })
 }
 
 function setDatalist(){
@@ -58,12 +55,3 @@ function getStationObject(name){
 
     return JSON.stringify(find);
 }
-
-// $(document).ready(function () {
-//     $("#searchButton").mouseenter(function () {
-//         $("#searchButton").animate({ filter: invert(100%) }, "fast");
-//     });
-//     $("#searchButton").mouseleave(function () {
-//         $("#searchButton").css("filter", "invert(0%)");
-//     });
-// });

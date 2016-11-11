@@ -21,11 +21,26 @@
 }
 
 input{
-    witdh: 200px;
+    witdh: 300px;
     display: inline-block;
 }
 
 p{
     display: inline-block;
     margin-left: 10px;
+    font-size: small;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.tableInput {
+    width: 300px;
+}
+
+.tableButton {
+    width: 120px;
+}
+
+.optionButton {
+    width: 120px;
 }

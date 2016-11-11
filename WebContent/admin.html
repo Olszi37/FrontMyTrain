@@ -5,6 +5,7 @@
 <title>Strona administratorska - MyTrain</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://malsup.github.io/jquery.blockUI.js"></script>
 	<script type="text/javascript" src="js/adminScript.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/admin.css">
@@ -46,9 +47,9 @@
 	<div>
 		<br><label class="labels">Połączenia</label><br>
 		<div>
-			<input id="connectionInput" type="file" name="course"><p id="connectionP"></p>
+			<input id="courseInput" type="file" name="course"><p id="courseP"></p>
 		</div>
-		<button id="connectionButton" onclick="setConnections()">Wyslij</button><br>
+		<button id="courseButton" onclick="setCourses()">Wyslij</button><br>
 	</div>
 
 	<div>
@@ -59,6 +60,32 @@
 		<button id="routePointButton" onclick="setRoutePoints()">Wyslij</button><br>
 	</div>
 
+	<!--<label class="labels">Składy</label>-->
+	<!--<table>-->
+		<!--<tr>-->
+			<!--<td class="tableInput">-->
+				<!--<input id="trainsetInput" type="file">-->
+			<!--</td>-->
+			<!--<td class="tableButton">-->
+				<!--<button id="trainsetButton" class="optionButton" onclick="setTrainsets()">Uzupełnij tabele</button>-->
+			<!--</td>-->
+			<!--<td class="tableButton">-->
+				<!--<button class="optionButton">Zobacz tabele</button>-->
+			<!--</td>-->
+			<!--<td class="tableButton">-->
+				<!--<button class="optionButton">Wyczysc tabele</button>-->
+			<!--</td>-->
+			<!--<td class="tableStatus">-->
+				<!--Ilosc rekordow w bazie-->
+			<!--</td>-->
+			<!--<td class="tableInfo">-->
+				<!--<p id="trainsetP">info</p>-->
+			<!--</td>-->
+			<!--<td class="tableLoading">-->
+				<!--<img id="trainsetLoading" class="loading" src="resources/gif/ajax-loader.gif">-->
+			<!--</td>-->
+		<!--</tr>-->
+	<!--</table>-->
 </div>
 
 </body>
