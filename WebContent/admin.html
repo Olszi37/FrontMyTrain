@@ -20,72 +20,240 @@
 </div>
 
 <div id="content">
-	<div>
-		<label class="labels">Składy</label><br>
-		<div>
-			<input id="trainsetInput" type="file"><p id="trainsetP"></p>
-		</div>
-		<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>
-	</div>
+	<!--<div>-->
+		<!--<label class="labels">Składy</label><br>-->
+		<!--<div>-->
+			<!--<input id="trainsetInput" type="file"><p id="trainsetP"></p>-->
+		<!--</div>-->
+		<!--<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>-->
+	<!--</div>-->
 
-	<div>
-		<br><label class="labels">Wagony</label><br>
-		<div>
-			<input id="carriageInput" type="file" name="carriage"><p id="carriageP"></p>
-		</div>
-		<button id="carriageButton" onclick="setCarriages()" >Wyslij</button><br>
-	</div>
+	<!--<div>-->
+		<!--<br><label class="labels">Wagony</label><br>-->
+		<!--<div>-->
+			<!--<input id="carriageInput" type="file" name="carriage"><p id="carriageP"></p>-->
+		<!--</div>-->
+		<!--<button id="carriageButton" onclick="setCarriages()" >Wyslij</button><br>-->
+	<!--</div>-->
 
-	<div>
-		<br><label class="labels">Stacje</label><br>
-		<div>
-			<input id="stationInput" type="file" name="station"><p id="stationP"></p>
-		</div>
-		<button id="stationButton" onclick="setStations()">Wyslij</button><br>
-	</div>
+	<!--<div>-->
+		<!--<br><label class="labels">Stacje</label><br>-->
+		<!--<div>-->
+			<!--<input id="stationInput" type="file" name="station"><p id="stationP"></p>-->
+		<!--</div>-->
+		<!--<button id="stationButton" onclick="setStations()">Wyslij</button><br>-->
+	<!--</div>-->
 
-	<div>
-		<br><label class="labels">Połączenia</label><br>
-		<div>
-			<input id="courseInput" type="file" name="course"><p id="courseP"></p>
-		</div>
-		<button id="courseButton" onclick="setCourses()">Wyslij</button><br>
-	</div>
+	<!--<div>-->
+		<!--<br><label class="labels">Połączenia</label><br>-->
+		<!--<div>-->
+			<!--<input id="courseInput" type="file" name="course"><p id="courseP"></p>-->
+		<!--</div>-->
+		<!--<button id="courseButton" onclick="setCourses()">Wyslij</button><br>-->
+	<!--</div>-->
 
-	<div>
-		<br><label class="labels">Szczegóły połączeń</label><br>
-		<div>
-			<input id="routePointInput" type="file" name="routePoint"><p id="routePointP"></p>
-		</div>
-		<button id="routePointButton" onclick="setRoutePoints()">Wyslij</button><br>
-	</div>
+	<!--<div>-->
+		<!--<br><label class="labels">Szczegóły połączeń</label><br>-->
+		<!--<div>-->
+			<!--<input id="routePointInput" type="file" name="routePoint"><p id="routePointP"></p>-->
+		<!--</div>-->
+		<!--<button id="routePointButton" onclick="setRoutePoints()">Wyslij</button><br>-->
+	<!--</div>-->
 
-	<!--<label class="labels">Składy</label>-->
-	<!--<table>-->
-		<!--<tr>-->
-			<!--<td class="tableInput">-->
-				<!--<input id="trainsetInput" type="file">-->
-			<!--</td>-->
-			<!--<td class="tableButton">-->
-				<!--<button id="trainsetButton" class="optionButton" onclick="setTrainsets()">Uzupełnij tabele</button>-->
-			<!--</td>-->
-			<!--<td class="tableButton">-->
-				<!--<button class="optionButton">Zobacz tabele</button>-->
-			<!--</td>-->
-			<!--<td class="tableButton">-->
-				<!--<button class="optionButton">Wyczysc tabele</button>-->
-			<!--</td>-->
-			<!--<td class="tableStatus">-->
-				<!--Ilosc rekordow w bazie-->
-			<!--</td>-->
-			<!--<td class="tableInfo">-->
-				<!--<p id="trainsetP">info</p>-->
-			<!--</td>-->
-			<!--<td class="tableLoading">-->
-				<!--<img id="trainsetLoading" class="loading" src="resources/gif/ajax-loader.gif">-->
-			<!--</td>-->
-		<!--</tr>-->
-	<!--</table>-->
+	<label class="labels">Składy</label>
+	<table>
+		<tr>
+			<th>
+				Status
+			</th>
+			<th>
+				Uzupelnij baze
+			</th>
+			<th>
+				Edytuj tabele
+			</th>
+			<th>
+				Wyczysc rekordy
+			</th>
+			<th>
+
+			</th>
+		</tr>
+		<tr>
+			<td class="tableStatus">
+				Ilosc rekordow w bazie
+			</td>
+			<td class="tableInput">
+				<input id="trainsetInput" type="file"><br>
+				<button id="trainsetButton" class="optionButton" onclick="setTrainsets()">Uzupełnij tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Edytuj tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Wyczysc tabele</button>
+			</td>
+			<td class="tableInfo">
+				<p id="trainsetP">info</p>
+			</td>
+		</tr>
+	</table>
+
+	<label class="labels">Wagony</label>
+	<table>
+		<tr>
+			<th>
+				Status
+			</th>
+			<th>
+				Uzupelnij baze
+			</th>
+			<th>
+				Edytuj tabele
+			</th>
+			<th>
+				Wyczysc rekordy
+			</th>
+			<th>
+
+			</th>
+		</tr>
+		<tr>
+			<td class="tableStatus">
+				Ilosc rekordow w bazie
+			</td>
+			<td class="tableInput">
+				<input id="carriageInput" type="file"><br>
+				<button id="carriageButton" class="optionButton" onclick="setCarriages()">Uzupełnij tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Edytuj tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Wyczysc tabele</button>
+			</td>
+			<td class="tableInfo">
+				<p id="carriageP">info</p>
+			</td>
+		</tr>
+	</table>
+
+	<label class="labels">Stacje</label>
+	<table>
+		<tr>
+			<th>
+				Status
+			</th>
+			<th>
+				Uzupelnij baze
+			</th>
+			<th>
+				Edytuj tabele
+			</th>
+			<th>
+				Wyczysc rekordy
+			</th>
+			<th>
+
+			</th>
+		</tr>
+		<tr>
+			<td class="tableStatus">
+				Ilosc rekordow w bazie
+			</td>
+			<td class="tableInput">
+				<input id="stationInput" type="file"><br>
+				<button id="stationButton" class="optionButton" onclick="setStations()">Uzupełnij tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Edytuj tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Wyczysc tabele</button>
+			</td>
+			<td class="tableInfo">
+				<p id="stationP">info</p>
+			</td>
+		</tr>
+	</table>
+
+	<label class="labels">Kursy</label>
+	<table>
+		<tr>
+			<th>
+				Status
+			</th>
+			<th>
+				Uzupelnij baze
+			</th>
+			<th>
+				Edytuj tabele
+			</th>
+			<th>
+				Wyczysc rekordy
+			</th>
+			<th>
+
+			</th>
+		</tr>
+		<tr>
+			<td class="tableStatus">
+				Ilosc rekordow w bazie
+			</td>
+			<td class="tableInput">
+				<input id="courseInput" type="file"><br>
+				<button id="courseButton" class="optionButton" onclick="setCourses()">Uzupełnij tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Edytuj tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Wyczysc tabele</button>
+			</td>
+			<td class="tableInfo">
+				<p id="courseP">info</p>
+			</td>
+		</tr>
+	</table>
+
+	<label class="labels">Rozkład kursów</label>
+	<table>
+		<tr>
+			<th>
+				Status
+			</th>
+			<th>
+				Uzupelnij baze
+			</th>
+			<th>
+				Edytuj tabele
+			</th>
+			<th>
+				Wyczysc rekordy
+			</th>
+			<th>
+
+			</th>
+		</tr>
+		<tr>
+			<td class="tableStatus">
+				Ilosc rekordow w bazie
+			</td>
+			<td class="tableInput">
+				<input id="routePointInput" type="file"><br>
+				<button id="routePointButton" class="optionButton" onclick="setRoutePoints()">Uzupełnij tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Edytuj tabele</button>
+			</td>
+			<td class="tableButton">
+				<button class="optionButton">Wyczysc tabele</button>
+			</td>
+			<td class="tableInfo">
+				<p id="routePointP">info</p>
+			</td>
+		</tr>
+	</table>
 </div>
 
 </body>
