@@ -20,68 +20,12 @@
 </div>
 
 <div id="content">
-	<!--<div>-->
-		<!--<label class="labels">Składy</label><br>-->
-		<!--<div>-->
-			<!--<input id="trainsetInput" type="file"><p id="trainsetP"></p>-->
-		<!--</div>-->
-		<!--<button id="trainsetButton" onclick="setTrainsets()">Wyslij</button><br>-->
-	<!--</div>-->
-
-	<!--<div>-->
-		<!--<br><label class="labels">Wagony</label><br>-->
-		<!--<div>-->
-			<!--<input id="carriageInput" type="file" name="carriage"><p id="carriageP"></p>-->
-		<!--</div>-->
-		<!--<button id="carriageButton" onclick="setCarriages()" >Wyslij</button><br>-->
-	<!--</div>-->
-
-	<!--<div>-->
-		<!--<br><label class="labels">Stacje</label><br>-->
-		<!--<div>-->
-			<!--<input id="stationInput" type="file" name="station"><p id="stationP"></p>-->
-		<!--</div>-->
-		<!--<button id="stationButton" onclick="setStations()">Wyslij</button><br>-->
-	<!--</div>-->
-
-	<!--<div>-->
-		<!--<br><label class="labels">Połączenia</label><br>-->
-		<!--<div>-->
-			<!--<input id="courseInput" type="file" name="course"><p id="courseP"></p>-->
-		<!--</div>-->
-		<!--<button id="courseButton" onclick="setCourses()">Wyslij</button><br>-->
-	<!--</div>-->
-
-	<!--<div>-->
-		<!--<br><label class="labels">Szczegóły połączeń</label><br>-->
-		<!--<div>-->
-			<!--<input id="routePointInput" type="file" name="routePoint"><p id="routePointP"></p>-->
-		<!--</div>-->
-		<!--<button id="routePointButton" onclick="setRoutePoints()">Wyslij</button><br>-->
-	<!--</div>-->
 
 	<label class="labels">Składy</label>
 	<table>
 		<tr>
-			<th>
-				Status
-			</th>
-			<th>
-				Uzupelnij baze
-			</th>
-			<th>
-				Edytuj tabele
-			</th>
-			<th>
-				Wyczysc rekordy
-			</th>
-			<th>
-
-			</th>
-		</tr>
-		<tr>
-			<td class="tableStatus">
-				Ilosc rekordow w bazie
+			<td class="tableStatus" style="width: 200px">
+				<p id="trainsetStatus">Ilosc rekordow w tabeli</p>
 			</td>
 			<td class="tableInput">
 				<input id="trainsetInput" type="file"><br>
@@ -93,8 +37,8 @@
 			<td class="tableButton">
 				<button class="optionButton">Wyczysc tabele</button>
 			</td>
-			<td class="tableInfo">
-				<p id="trainsetP">info</p>
+			<td class="tableInfo" style="width: 400px">
+				<p id="trainsetP">BLAD: 400 - serwer nie odpowiadaaaaaaaaaaaaaaa</p>
 			</td>
 		</tr>
 	</table>
@@ -102,25 +46,8 @@
 	<label class="labels">Wagony</label>
 	<table>
 		<tr>
-			<th>
-				Status
-			</th>
-			<th>
-				Uzupelnij baze
-			</th>
-			<th>
-				Edytuj tabele
-			</th>
-			<th>
-				Wyczysc rekordy
-			</th>
-			<th>
-
-			</th>
-		</tr>
-		<tr>
 			<td class="tableStatus">
-				Ilosc rekordow w bazie
+				<p id="carriageStatus">Ilosc rekordow w tabeli</p>
 			</td>
 			<td class="tableInput">
 				<input id="carriageInput" type="file"><br>
@@ -141,25 +68,8 @@
 	<label class="labels">Stacje</label>
 	<table>
 		<tr>
-			<th>
-				Status
-			</th>
-			<th>
-				Uzupelnij baze
-			</th>
-			<th>
-				Edytuj tabele
-			</th>
-			<th>
-				Wyczysc rekordy
-			</th>
-			<th>
-
-			</th>
-		</tr>
-		<tr>
 			<td class="tableStatus">
-				Ilosc rekordow w bazie
+				<p id="stationStatus">Ilosc rekordow w tabeli</p>
 			</td>
 			<td class="tableInput">
 				<input id="stationInput" type="file"><br>
@@ -180,25 +90,8 @@
 	<label class="labels">Kursy</label>
 	<table>
 		<tr>
-			<th>
-				Status
-			</th>
-			<th>
-				Uzupelnij baze
-			</th>
-			<th>
-				Edytuj tabele
-			</th>
-			<th>
-				Wyczysc rekordy
-			</th>
-			<th>
-
-			</th>
-		</tr>
-		<tr>
 			<td class="tableStatus">
-				Ilosc rekordow w bazie
+				<p id="courseStatus">Ilosc rekordow w tabeli</p>
 			</td>
 			<td class="tableInput">
 				<input id="courseInput" type="file"><br>
@@ -219,25 +112,8 @@
 	<label class="labels">Rozkład kursów</label>
 	<table>
 		<tr>
-			<th>
-				Status
-			</th>
-			<th>
-				Uzupelnij baze
-			</th>
-			<th>
-				Edytuj tabele
-			</th>
-			<th>
-				Wyczysc rekordy
-			</th>
-			<th>
-
-			</th>
-		</tr>
-		<tr>
 			<td class="tableStatus">
-				Ilosc rekordow w bazie
+				<p id="routePointStatus">Ilosc rekordow w tabeli</p>
 			</td>
 			<td class="tableInput">
 				<input id="routePointInput" type="file"><br>

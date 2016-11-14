@@ -44,3 +44,7 @@ p{
 .optionButton {
     width: 120px;
 }
+
+table {
+    margin-bottom: 50px;
+}
