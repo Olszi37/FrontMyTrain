@@ -15,6 +15,15 @@ $(document).ready(function () {
 	$(document).ajaxError( function () {
 		$.unblockUI();
 	});
+
+	$("#clear_dialog").dialog({
+		autoOpen: false,
+		resizable: false,
+		height: 250,
+		width: 300,
+		modal: true,
+		position: "center"
+	});
 });
 
 function getTablesStatus(){
@@ -74,10 +83,9 @@ function setTrainsets(){
 	var input = $("#trainsetInput").prop("files");
 	var info = $("#trainsetP");
 	var fileName = "trainsets.xlsx";
+	var statusField = $("#trainsetStatus");
 
-	sendFileRequest(url, input, fileName, info);
-
-	getTrainsetStatus();
+	sendFileRequest(url, input, fileName, info, statusField);
 }
 
 function setCarriages(){
@@ -85,10 +93,9 @@ function setCarriages(){
 	var input = $("#carriageInput").prop("files");
 	var info = $("#carriageP");
 	var fileName = "carriages.xlsx";
+	var statusField = $("#carriageStatus");
 
-	sendFileRequest(url, input, fileName, info);
-
-	getCarriageStatus();
+	sendFileRequest(url, input, fileName, info, statusField);
 }
 
 function setStations(){
@@ -96,10 +103,9 @@ function setStations(){
 	var input = $("#stationInput").prop("files");
 	var info = $("#stationP");
 	var fileName = "stations.xlsx";
+	var statusField = $("#stationStatus");
 
-	sendFileRequest(url, input, fileName, info);
-
-	getStationStatus();
+	sendFileRequest(url, input, fileName, info, statusField);
 }
 
 function setCourses(){
@@ -107,10 +113,9 @@ function setCourses(){
 	var input = $("#courseInput").prop("files");
 	var info = $("#courseP");
 	var fileName = "courses.xlsx";
+	var statusField = $("#courseStatus");
 
-	sendFileRequest(url, input, fileName, info);
-
-	getCourseStatus();
+	sendFileRequest(url, input, fileName, info, statusField);
 }
 
 function setRoutePoints(){
@@ -118,10 +123,9 @@ function setRoutePoints(){
 	var input = $("#routePointInput").prop("files");
 	var info = $("#routePointP");
 	var fileName = "routePoints.xlsx";
+	var statusField = $("#routePointStatus");
 
-	sendFileRequest(url, input, fileName, info);
-
-	getRoutePointStatus();
+	sendFileRequest(url, input, fileName, info, statusField);
 }
 
 //clear functions
@@ -129,54 +133,135 @@ function setRoutePoints(){
 function clearTrainset(){
 	var url = "http://localhost:8080/MyTrain/trainset/clear";
 	var info = $("#trainsetP");
+	var carriageRows = parseInt($("#carriageStatus").text());
+	var rows = parseInt($("#trainsetStatus").text());
+	var dialog = $("#clear_dialog");
+	var statusField = $("#trainsetStatus");
 
-	if($("#carriageStatus").val() == "0"){
-		alert("Musisz najpierw wyczyścić tabelę Wagony.");
-	} else {
-		jConfirm()
+	if(rows == 0){
+		info.text("Tabela jest pusta");
+	}
+	else {
+		if(carriageRows != 0){
+			$("#dialog_message").text("Przed wyczyszczeniem tej tabeli musisz wyczyścić tabelę Wagony.");
+			dialog.dialog("option", "buttons", {
+				"Ok" : function () {
+					dialog.dialog("close");
+				}
+			});
+			dialog.dialog("open");
+		} else {
+			openDialog(0, url, info, statusField);
+		}
 	}
 }
 
 function clearCarriage(){
-	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var url = "http://localhost:8080/MyTrain/carriage/clear";
 	var info = $("#carriageP");
+	var rows = parseInt($("#carriageStatus").text());
+	var statusField = $("#carriageStatus");
 
-	var answer = confirm("Czy chcesz wyczyścić tabelę?");
-
-	if(answer){
-		//sendClearRequest(url, info);
-		//getCarriageStatus();
-		alert("OK");
-	}
+	if(rows == 0)
+		info.text("Tabela jest pusta");
+	else
+		openDialog(1, url, info, statusField);
 }
 
 function clearStation(){
-	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var url = "http://localhost:8080/MyTrain/station/clear";
 	var info = $("#stationP");
+	var dialog = $("#clear_dialog");
+	var courseRows = parseInt($("#courseStatus").text());
+	var rows = parseInt($("#stationStatus").text());
+	var statusField = $("#stationStatus");
 
-	sendClearRequest(url, info);
-	getStationStatus();
+	if(rows == 0){
+		info.text("Tabela jest pusta");
+	} else {
+		if(courseRows != 0){
+			$("#dialog_message").text("Przed wyczyszczeniem tej tabeli musisz wyczyścić najpierw " +
+				"Rozdkład kursów, a następnie Kursy.");
+			dialog.dialog("option", "buttons", {
+				"Ok" : function () {
+					dialog.dialog("close");
+				}
+			});
+			dialog.dialog("open");
+		} else {
+			openDialog(2, url, info, statusField);
+		}
+	}
 }
 
 function clearCourse(){
-	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var url = "http://localhost:8080/MyTrain/course/clear";
 	var info = $("#courseP");
+	var dialog = $("#clear_dialog");
+	var routePointRows = parseInt($("#routePointStatus").text());
+	var rows = parseInt($("#courseStatus").text());
+	var statusField = $("#courseStatus");
 
-	sendClearRequest(url, info);
-	getCourseStatus();
+	if(rows == 0){
+		info.text("Tabela jest pusta");
+	} else {
+		if(routePointRows != 0){
+			$("#dialog_message").text("Przed wyczyszczeniem tej tabeli musisz wyczyścić tabelę Rozkład kursów");
+			dialog.dialog("option", "buttons", {
+				"Ok" : function () {
+					dialog.dialog("close");
+				}
+			});
+			dialog.dialog("open");
+		} else {
+			openDialog(3, url, info, statusField);
+		}
+	}
 }
 
 function clearRoutePoint(){
-	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var url = "http://localhost:8080/MyTrain/routePoint/clear";
 	var info = $("#routePointP");
+	var rows = parseInt($("#routePointStatus").text());
+	var statusField = $("#routePointStatus");
 
-	sendClearRequest(url, info);
-	getRoutePointStatus();
+	if(rows == 0)
+		info.text("Tabela jest pusta");
+	else
+		openDialog(4, url, info, statusField);
+}
+
+
+function openDialog(table, url, info, statusField){
+	var dialog = $("#clear_dialog");
+	$("#dialog_message").text("Czy jesteś pewien?");
+
+	dialog.dialog("option", "buttons", {
+		"Tak": function () {
+			dialog.dialog("close");
+
+			if(table == 0){
+				sendClearRequest(url, info, statusField);
+			} else if (table == 1){
+				sendClearRequest(url, info, statusField);
+			} else if (table == 2){
+				sendClearRequest(url, info, statusField);
+			} else if (table == 3){
+				sendClearRequest(url, info, statusField);
+			} else {
+				sendClearRequest(url, info, statusField);
+			}
+		},
+		"Nie" : function () {
+			dialog.dialog("close");
+		}
+	});
+	dialog.dialog("open");
 }
 
 
 
-function sendFileRequest(url, input, fileName, info){
+function sendFileRequest(url, input, fileName, info, statusField){
 
 	if(input.length !== 0){
 		var formData = new FormData();
@@ -193,6 +278,17 @@ function sendFileRequest(url, input, fileName, info){
 			processData: false,
 			success: function (response, status, jqXHR) {
 				info.text("Dodano " + response + " rekordów.");
+
+				var ending = " rekordów.";
+
+				if(response == 1){
+					ending = " rekord."
+				}
+				if(response != 1 && response != 0 && response < 5){
+					ending = " rekordy.";
+				}
+
+				statusField.text(response + ending);
 			},
 			error: function (jqXHR, status, errorThrown) {
 				info.addClass("error").text("Wystąpił błąd: " + jqXHR.status + " " + errorThrown);
@@ -230,7 +326,7 @@ function sendRowCountRequest(url, info, statusField) {
 	});
 }
 
-function sendClearRequest(url, info) {
+function sendClearRequest(url, info, statusField) {
 	$.ajax({
 		url: url,
 		type: "DELETE",
@@ -241,6 +337,7 @@ function sendClearRequest(url, info) {
 		processData: false,
 		success: function (response, status, jqXHR) {
 			info.text("Wyczyszczono tabelę.");
+			statusField.text("0 rekordów")
 		},
 		error: function (jqXHR, status, errorThrown) {
 			info.addClass("error").text("Wystąpił błąd: " + jqXHR.status + " " + errorThrown);
