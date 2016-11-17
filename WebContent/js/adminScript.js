@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-	//getTablesStatus();
+	getTablesStatus();
 
 	$(document).ajaxStart( function() {
 		$.blockUI({ message: "<div style='background-color: #C6CDF7'>" +
@@ -24,6 +24,8 @@ function getTablesStatus(){
 	getCourseStatus();
 	getRoutePointStatus();
 }
+
+//status functions
 
 function getTrainsetStatus(){
 	var url = "http://localhost:8080/MyTrain/trainset/get/size";
@@ -65,23 +67,7 @@ function getRoutePointStatus(){
 	sendRowCountRequest(url, info, statusField);
 }
 
-function sendRowCountRequest(url, info, statusField) {
-	$.ajax({
-		url: url,
-		type: "GET",
-		cache: false,
-		crossDomain: true,
-		headers: {"Access-Control-Allow-Origin": "*"},
-		contentType: false,
-		processData: false,
-		success: function (response, status, jqXHR) {
-			statusField.text(response + " rekordów");
-		},
-		error: function () {
-			info.addClass("error").text("Wystapil blad");
-		}
-	});
-}
+// file uploads
 
 function setTrainsets(){
 	var url = "http://localhost:8080/MyTrain/trainset/set/file";
@@ -138,6 +124,58 @@ function setRoutePoints(){
 	getRoutePointStatus();
 }
 
+//clear functions
+
+function clearTrainset(){
+	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var info = $("#trainsetP");
+
+	if($("#carriageStatus").val() == "0"){
+		alert("Musisz najpierw wyczyścić tabelę Wagony.");
+	} else {
+		jConfirm()
+	}
+}
+
+function clearCarriage(){
+	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var info = $("#carriageP");
+
+	var answer = confirm("Czy chcesz wyczyścić tabelę?");
+
+	if(answer){
+		//sendClearRequest(url, info);
+		//getCarriageStatus();
+		alert("OK");
+	}
+}
+
+function clearStation(){
+	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var info = $("#stationP");
+
+	sendClearRequest(url, info);
+	getStationStatus();
+}
+
+function clearCourse(){
+	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var info = $("#courseP");
+
+	sendClearRequest(url, info);
+	getCourseStatus();
+}
+
+function clearRoutePoint(){
+	var url = "http://localhost:8080/MyTrain/trainset/clear";
+	var info = $("#routePointP");
+
+	sendClearRequest(url, info);
+	getRoutePointStatus();
+}
+
+
+
 function sendFileRequest(url, input, fileName, info){
 
 	if(input.length !== 0){
@@ -157,10 +195,55 @@ function sendFileRequest(url, input, fileName, info){
 				info.text("Dodano " + response + " rekordów.");
 			},
 			error: function (jqXHR, status, errorThrown) {
-				info.addClass("error").text("Wystąpił błąd");
+				info.addClass("error").text("Wystąpił błąd: " + jqXHR.status + " " + errorThrown);
 			}
 		});
 	} else {
 		info.text("Wybierz plik");
 	}
+}
+
+function sendRowCountRequest(url, info, statusField) {
+	$.ajax({
+		url: url,
+		type: "GET",
+		cache: false,
+		crossDomain: true,
+		headers: {"Access-Control-Allow-Origin": "*"},
+		contentType: false,
+		processData: false,
+		success: function (response, status, jqXHR) {
+			var ending = " rekordów.";
+
+			if(response == 1){
+				ending = " rekord."
+			}
+			if(response != 1 && response != 0 && response < 5){
+				ending = " rekordy.";
+			}
+
+			statusField.text(response + ending);
+		},
+		error: function (jqXHR, status, errorThrown) {
+			info.addClass("error").text("Wystąpił błąd: " + jqXHR.status + " " + errorThrown);
+		}
+	});
+}
+
+function sendClearRequest(url, info) {
+	$.ajax({
+		url: url,
+		type: "DELETE",
+		cache: false,
+		crossDomain: true,
+		headers: {"Access-Control-Allow-Origin": "*"},
+		contentType: false,
+		processData: false,
+		success: function (response, status, jqXHR) {
+			info.text("Wyczyszczono tabelę.");
+		},
+		error: function (jqXHR, status, errorThrown) {
+			info.addClass("error").text("Wystąpił błąd: " + jqXHR.status + " " + errorThrown);
+		}
+	})
 }
