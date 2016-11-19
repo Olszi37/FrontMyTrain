@@ -19,7 +19,7 @@ $(document).ready(function () {
 	$("#clear_dialog").dialog({
 		autoOpen: false,
 		resizable: false,
-		height: 250,
+		height: 200,
 		width: 300,
 		modal: true,
 		position: "center"
@@ -133,10 +133,11 @@ function setRoutePoints(){
 function clearTrainset(){
 	var url = "http://localhost:8080/MyTrain/trainset/clear";
 	var info = $("#trainsetP");
-	var carriageRows = parseInt($("#carriageStatus").text());
-	var rows = parseInt($("#trainsetStatus").text());
 	var dialog = $("#clear_dialog");
 	var statusField = $("#trainsetStatus");
+	var carriageRows = parseInt($("#carriageStatus").text());
+	var rows = parseInt(statusField.text());
+
 
 	if(rows == 0){
 		info.text("Tabela jest pusta");
@@ -159,8 +160,9 @@ function clearTrainset(){
 function clearCarriage(){
 	var url = "http://localhost:8080/MyTrain/carriage/clear";
 	var info = $("#carriageP");
-	var rows = parseInt($("#carriageStatus").text());
 	var statusField = $("#carriageStatus");
+	var rows = parseInt(statusField.text());
+
 
 	if(rows == 0)
 		info.text("Tabela jest pusta");
@@ -172,9 +174,10 @@ function clearStation(){
 	var url = "http://localhost:8080/MyTrain/station/clear";
 	var info = $("#stationP");
 	var dialog = $("#clear_dialog");
-	var courseRows = parseInt($("#courseStatus").text());
-	var rows = parseInt($("#stationStatus").text());
 	var statusField = $("#stationStatus");
+	var courseRows = parseInt($("#courseStatus").text());
+	var rows = parseInt(statusField.text());
+
 
 	if(rows == 0){
 		info.text("Tabela jest pusta");
@@ -198,9 +201,10 @@ function clearCourse(){
 	var url = "http://localhost:8080/MyTrain/course/clear";
 	var info = $("#courseP");
 	var dialog = $("#clear_dialog");
-	var routePointRows = parseInt($("#routePointStatus").text());
-	var rows = parseInt($("#courseStatus").text());
 	var statusField = $("#courseStatus");
+	var routePointRows = parseInt($("#routePointStatus").text());
+	var rows = parseInt(statusField.text());
+
 
 	if(rows == 0){
 		info.text("Tabela jest pusta");
@@ -222,8 +226,8 @@ function clearCourse(){
 function clearRoutePoint(){
 	var url = "http://localhost:8080/MyTrain/routePoint/clear";
 	var info = $("#routePointP");
-	var rows = parseInt($("#routePointStatus").text());
 	var statusField = $("#routePointStatus");
+	var rows = parseInt(statusField.text());
 
 	if(rows == 0)
 		info.text("Tabela jest pusta");
