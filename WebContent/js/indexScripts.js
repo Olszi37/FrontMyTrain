@@ -18,7 +18,6 @@ function getStations(){
         dataType: "json",
         success: function (response, status, jqXHR) {
             localStorage.setItem("stations", JSON.stringify(response));
-            window.alert(localStorage.getItem("stations"));
         }
     })
 }
@@ -36,9 +35,9 @@ function setDatalist(){
 }
 
 function redirect(){
-    localStorage.setItem("initialStop", getStationObject($("#initialStop").option.value));
-    localStorage.setItem("finalStop", getStationObject($("#finalStop").option.value));
-    localStorage.setItem("departureDate", $("#departureDate").value);
+    localStorage.setItem("initialStop", getStationObject($("#initialStop").val()));
+    localStorage.setItem("finalStop", getStationObject($("#finalStop").val()));
+    localStorage.setItem("departureDate", $("#departureDate").val());
 
     window.location.href = "buyTicket.html";
 }
