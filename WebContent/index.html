@@ -5,12 +5,15 @@
 <title>MyTrain - połączenia kolejowe całej Polski</title>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="js/indexScripts.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/defaults.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 </head>
-<body onload="setSearchData()">
+<body>
 
 <div id="top">
 <label id="logo">MyTrain</label>
@@ -51,7 +54,7 @@
         <input id="finalStop" class="inputStation" list="stationNames" type="text" placeholder="Kraków Główny"><br>
 
         <label class="inputHeader">Data wyjazdu</label><br>
-        <input id="departureDate" class="inputDate" type="date"><br>
+        <input id="departureDate" class="inputDate" type="text"><br>
 
         <br>
         <button id="searchButton" onclick="redirect()">Szukaj</button>

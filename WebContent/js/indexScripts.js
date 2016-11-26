@@ -1,11 +1,20 @@
 /**
  * Created by Siny on 2016-10-29.
  */
+
+$(document).ready(function () {
+
+    $("#departureDate").datepicker();
+
+    var date = new Date().toLocaleDateString("eu-PL").toString();
+    $("#departureDate").val(date);
+
+    setSearchData();
+});
+
 function setSearchData(){
     getStations();
     setDatalist();
-    var date = $("#departureDate").get(0);
-    date.value = new Date().toLocaleDateString("eu-PL");
 }
 
 function getStations(){
