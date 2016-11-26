@@ -26,7 +26,7 @@ function sendSearchRequest(data){
         processData: false,
         success: function (response, status, jqXHR) {
             alert(response);
-            //fillTable(JSON.parse(response));
+            fillTable(JSON.parse(response));
         },
         error: function (jqXHR, status, errorThrown) {
             alert("Błąd: " + jqXHR.status + ": " + errorThrown);
@@ -38,7 +38,13 @@ function fillTable(response){
     var table = $("#optionTable");
     var i = 0;
 
-    $.each(table, function (key, value) {
-        table.append("<tr id='result" + i++ + "'><td>" +  + "</td></tr>")
+    table.append("<tr id='result" + i + ">");
+    table.append("<button id='button"+ i++ +"' onclick=''>Wybierz</button>");
+    $.each(response, function (key, value) {
+
+        //wyjazd, przyjazd, czas podrozy, dystans, koszt - wszystko po stronie backa
+
+        //var departureTime = response.departureTime;
+        table.append("<td>" + + "</td></tr>")
     });
 }
