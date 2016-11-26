@@ -7,9 +7,9 @@ $(document).ready( function () {
     var finalStop = JSON.parse(localStorage.getItem("finalStop"));
     var departureDate = localStorage.getItem("departureDate");
 
-    var data = {initialID: initialStop.id, finalID: finalStop.id, departure: departureDate};
+    var data = {initialStop: initialStop.id, finalStop: finalStop.id};
 
-    sendSearchRequest(data);
+    //sendSearchRequest(data);
 });
 
 function sendSearchRequest(data){
@@ -25,8 +25,8 @@ function sendSearchRequest(data){
         contentType: false,
         processData: false,
         success: function (response, status, jqXHR) {
-            
-            fillTable();
+            alert(response);
+            //fillTable(JSON.parse(response));
         },
         error: function (jqXHR, status, errorThrown) {
             alert("Błąd: " + jqXHR.status + ": " + errorThrown);
@@ -34,6 +34,11 @@ function sendSearchRequest(data){
     });
 }
 
-function fillTable(){
+function fillTable(response){
+    var table = $("#optionTable");
+    var i = 0;
 
+    $.each(table, function (key, value) {
+        table.append("<tr id='result" + i++ + "'><td>" +  + "</td></tr>")
+    });
 }
